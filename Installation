@@ -71,14 +71,12 @@ mkdir -p ${jasper install dir}
 ./configure --prefix=${jasper install dir} --enable-shared --enable-libjpeg
 make
 make install
+
 # LibPNG
-wgethttps://sourceforge.net/projects/libpng/files/libpng16/1.6.37/libpng-1.6.37.tar.gz
+wget https://sourceforge.net/projects/libpng/files/libpng16/1.6.37/libpng-1.6.37.tar.gz
 tar -zxvf libpng-1.6.37.tar.gz
 cd libpng-1.6.37
 mkdir -p ${libpng install dir}
 ./configure --prefix=${libpng install dir}
 make
 make install
-
-
-
