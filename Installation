@@ -46,7 +46,7 @@ make install
 
 # NetCDF Fortran
 export LD_LIBRARY_PATH=${netcdf install dir}/lib
-ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-fortran-4.5.3.tar.gz
+wget ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-fortran-4.5.3.tar.gz
 tar -zxvf netcdf-fortran-4.5.3.tar.gz
 cd netcdf-fortran-4.5.3
 ./configure --prefix=${netcdf install dir} LDFLAGS="-L${netcdf install dir}/lib" CPPFLAGS=="-I${netcdf install dir}/include" FC=gfortran F77=gfortran
@@ -71,8 +71,6 @@ mkdir -p ${jasper install dir}
 ./configure --prefix=${jasper install dir} --enable-shared --enable-libjpeg
 make
 make install
-
-
 # LibPNG
 wgethttps://sourceforge.net/projects/libpng/files/libpng16/1.6.37/libpng-1.6.37.tar.gz
 tar -zxvf libpng-1.6.37.tar.gz
