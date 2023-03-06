@@ -40,7 +40,7 @@ wget ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-c-4.7.4.tar.gz
 tar -zxvf netcdf-c-4.7.4.tar.gz
 cd netcdf-c-4.7.4
 mkdir -p ${netcdf install dir}
-./configure --prefix=${netcdf install dir} --enable-netcdf-4 LDFLAGS="-L${hdf5 install dir}/lib" CPPFLAGS=="-I${hdf5 install dir}/include" CC=gcc
+./configure --prefix=${netcdf install dir} --enable-netcdf-4 LDFLAGS="-L${hdf5 install dir}/lib" CPPFLAGS="-I${hdf5 install dir}/include" CC=gcc
 make
 make install
 
