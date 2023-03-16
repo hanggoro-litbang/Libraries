@@ -62,6 +62,14 @@ mkdir -p ${libjpeg install dir}
 make
 make install
 
+# LibPNG
+wget https://sourceforge.net/projects/libpng/files/libpng16/1.6.37/libpng-1.6.37.tar.gz
+tar -zxvf libpng-1.6.37.tar.gz
+cd libpng-1.6.37
+mkdir -p ${libpng install dir}
+./configure --prefix=${libpng install dir}
+make
+make install
 
 # Jasper
 wget https://www.ece.uvic.ca/~frodo/jasper/software/jasper-1.900.1.zip
@@ -72,11 +80,3 @@ mkdir -p ${jasper install dir}
 make
 make install
 
-# LibPNG
-wget https://sourceforge.net/projects/libpng/files/libpng16/1.6.37/libpng-1.6.37.tar.gz
-tar -zxvf libpng-1.6.37.tar.gz
-cd libpng-1.6.37
-mkdir -p ${libpng install dir}
-./configure --prefix=${libpng install dir}
-make
-make install
