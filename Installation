@@ -4,7 +4,9 @@ wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.4.tar.gz
 tar -zxvf openmpi-4.1.4.tar.gz
 cd openmpi-4.1.4
 mkdir -p ${openmpi install dir}
-./configure --prefix=${openmpi install dir}
+./configure --prefix=${openmpi install dir} 
+or 
+./configure --prefix=${openmpi install dir}  --with-pmi={slurm install dir}
 make
 make install
 
