@@ -1,1 +1,75 @@
 #menggunakan intel fortran compiler
+export CC=icc
+export FC=ifort
+
+# Zlib
+wget https://zlib.net/fossils/zlib-1.2.8.tar.gz
+tar -zxvf zlib-1.2.8.tar.gz
+cd zlib-1.2.8
+mkdir -p ${zlib install dir}
+./configure --prefix=${zlib install dir}
+make
+make install
+
+# Szip
+wget https://support.hdfgroup.org/ftp/lib-external/szip/2.1.1/src/szip-2.1.1.tar.gz
+tar -zxvf szip-2.1.1.tar.gz
+cd szip-2.1.1
+mkdir -p ${szip install dir}
+./configure --prefix=${szip install dir}
+make
+make install
+
+# HDF5
+wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.gz
+tar -zxvf hdf5-1.12.0.tar.gz
+cd hdf5-1.12.0
+mkdir -p ${hdf5 install dir}
+./configure --prefix=${hdf5 install dir} --with-zlib=${zlib install dir} --with-szlib=${szip install dir} --enable-fortran
+make
+make install
+
+# NetCDF c
+wget ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-c-4.7.4.tar.gz
+tar -zxvf netcdf-c-4.7.4.tar.gz
+cd netcdf-c-4.7.4
+mkdir -p ${netcdf install dir}
+./configure --prefix=${netcdf install dir} --enable-netcdf-4 LDFLAGS="-L${hdf5 install dir}/lib" CPPFLAGS="-I${hdf5 install dir}/include" CC=icc
+make
+make install
+
+# NetCDF Fortran
+export LD_LIBRARY_PATH=${netcdf install dir}/lib
+wget ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-fortran-4.5.3.tar.gz
+tar -zxvf netcdf-fortran-4.5.3.tar.gz
+cd netcdf-fortran-4.5.3
+./configure --prefix=${netcdf install dir} LDFLAGS="-L${netcdf install dir}/lib" CPPFLAGS="-I${netcdf install dir}/include" FC=ifort F77=ifort
+make
+make install
+
+# LibJpeg
+wget http://www.ijg.org/files/jpegsrc.v9e.tar.gz
+tar -zxvf jpegsrc.v9e.tar.gz
+cd jpeg-9
+mkdir -p ${libjpeg install dir}
+./configure --prefix=${libjpeg install dir}
+make
+make install
+
+# LibPNG
+wget https://sourceforge.net/projects/libpng/files/libpng16/1.6.37/libpng-1.6.37.tar.gz
+tar -zxvf libpng-1.6.37.tar.gz
+cd libpng-1.6.37
+mkdir -p ${libpng install dir}
+./configure --prefix=${libpng install dir}
+make
+make install
+
+# Jasper
+wget https://www.ece.uvic.ca/~frodo/jasper/software/jasper-1.900.1.zip
+unzip jasper-1.900.1.zip
+cd jasper-1.900.1
+mkdir -p ${jasper install dir}
+./configure --prefix=${jasper install dir} --enable-shared --enable-libjpeg
+make
+make install
