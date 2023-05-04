@@ -1,7 +1,7 @@
 #menggunakan intel fortran compiler
-export CC=icc
+export CC=icc *deprecated use CC=icx instead
 export FC=ifort
-
+export CXX=icpx
 # Zlib
 wget https://zlib.net/fossils/zlib-1.2.8.tar.gz
 tar -zxvf zlib-1.2.8.tar.gz
