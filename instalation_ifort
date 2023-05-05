@@ -1,7 +1,7 @@
 #menggunakan intel fortran compiler
 export CC=icc *deprecated use CC=icx instead
 export FC=ifort
-export CXX=icpx
+export CXX=icpc
 # Zlib
 wget https://zlib.net/fossils/zlib-1.2.8.tar.gz
 tar -zxvf zlib-1.2.8.tar.gz
@@ -46,6 +46,9 @@ cd netcdf-fortran-4.5.3
 ./configure --prefix=${netcdf install dir} LDFLAGS="-L${netcdf install dir}/lib" CPPFLAGS="-I${netcdf install dir}/include" FC=ifort F77=ifort
 make
 make install
+
+*error: Could not link conftestf.o and conftest.o
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/intel/oneapi/compiler/latest/linux/compiler/lib/intel64_lin
 
 # LibJpeg
 wget http://www.ijg.org/files/jpegsrc.v9e.tar.gz
