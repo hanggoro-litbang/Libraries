@@ -29,8 +29,15 @@ mkdir -p ${hdf5 install dir}
 make
 make install
 
+#Curl
+wget https://curl.se/download/curl-7.72.0.tar.gz 
+cd curl-7.72.0
+./configure --prefix=${curl_install_dir} --enable-http-auth --with-openssl
+make
+make install
+
 # NetCDF c
-wget ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-c-4.7.4.tar.gz
+https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.7.4.tar.gz
 tar -zxvf netcdf-c-4.7.4.tar.gz
 cd netcdf-c-4.7.4
 mkdir -p ${netcdf install dir}
@@ -40,7 +47,7 @@ make install
 
 # NetCDF Fortran
 export LD_LIBRARY_PATH=${netcdf install dir}/lib
-wget ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-fortran-4.5.3.tar.gz
+https://downloads.unidata.ucar.edu/netcdf-fortran/4.5.3/netcdf-fortran-4.5.3.tar.gz
 tar -zxvf netcdf-fortran-4.5.3.tar.gz
 cd netcdf-fortran-4.5.3
 ./configure --prefix=${netcdf install dir} LDFLAGS="-L${netcdf install dir}/lib" CPPFLAGS="-I${netcdf install dir}/include" FC=ifort F77=ifort
