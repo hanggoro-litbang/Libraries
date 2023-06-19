@@ -9,6 +9,8 @@ or
 ./configure --prefix=${openmpi install dir}  --with-pmi={slurm install dir}
 make
 make install
+or (bright)
+./configure --prefix=/cm/shared/apps/openmpi4/gcc/4.1.4 --with-verbs --with-slurm --with-pmi=/cm/shared/apps/slurm/21.08.8/include/slurm --with-pmi-libdir=/cm/shared/apps/slurm/21.08.8/lib64 --with-hwloc=/cm/shared/apps/hwloc/1.11.11
 
 # Zlib
 wget https://zlib.net/fossils/zlib-1.2.8.tar.gz
