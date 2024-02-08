@@ -83,3 +83,16 @@ mkdir -p ${jasper install dir}
 ./configure --prefix=${jasper install dir} --enable-shared --enable-libjpeg
 make
 make install
+
+# eccodes
+tar -xzf  eccodes-x.y.z-Source.tar.gz
+mkdir build ; cd build
+cmake -DCMAKE_INSTALL_PREFIX=/home/inanwp/libraries/eccodes-2.34-0 ../eccodes-2.34.0-Source -DENABLE_AEC=OFF -DENABLE_NETCDF=ON -DBUILD_SHARED_LIBS=both
+make
+ctest
+make install
+
+# CDO
+./configure --prefix=/home/inanwp/libraries/cdo-2.3.0 --with-netcdf=/home/inanwp/libraries/netcdf-4.7.4 CC=icc --with-hdf5=/home/inanwp/libraries/hdf5-1.12.0 --with-eccodes=/home/inanwp/libraries/eccodes-2.34-0 LDFLAGS="-L/home/inanwp/libraries/eccodes-2.34-0/lib64" CPPFLAGS="-I/home/inanwp/libraries/eccodes-2.34-0/include"
+make
+make install
