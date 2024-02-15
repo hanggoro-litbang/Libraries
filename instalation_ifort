@@ -87,8 +87,8 @@ make install
 # eccodes
 tar -xzf  eccodes-x.y.z-Source.tar.gz
 mkdir build ; cd build
-cmake -DCMAKE_INSTALL_PREFIX=/home/inanwp/libraries/eccodes-2.34-0 ../eccodes-2.34.0-Source -DENABLE_AEC=OFF -DENABLE_NETCDF=ON -DBUILD_SHARED_LIBS=both
-make
+cmake -DCMAKE_INSTALL_PREFIX=/home/inanwp/libraries/eccodes-2.34-0 -DENABLE_AEC=OFF -DENABLE_NETCDF=ON -DBUILD_SHARED_LIBS=both -DENABLE_JPG=ON -DENABLE_JPG_LIBJASPER=ON -DNetCDF_C_INCLUDE_DIR=/home/inanwp/libraries/netcdf-4.7.4/include ..
+cmake --build .
 ctest
 make install
 
