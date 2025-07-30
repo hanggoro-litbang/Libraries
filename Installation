@@ -21,6 +21,9 @@ or (bright)
 yum install libudev-devel
 yum instal numactl-devel
 
+or openhpc
+./configure --prefix={openmpi install dir} --with-slurm
+
 # Zlib
 wget https://zlib.net/fossils/zlib-1.2.8.tar.gz
 tar -zxvf zlib-1.2.8.tar.gz
